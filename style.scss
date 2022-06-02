@@ -1,0 +1,174 @@
+$red-salsa: hsla(0, 75%, 60%, 1);
+$light-salmon: hsla(17, 100%, 76%, 1);
+$seashell: hsl(12, 48%, 94%);
+$jet: hsla(15, 3%, 26%, 1);
+
+*{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+input[type=number] {
+  -moz-appearance: textfield !important;
+}
+body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 1em;
+  margin-top: 2em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  background: $seashell;
+  height: 200vh;
+}
+header{
+  z-index: 10;
+  $radius: 1.5em;
+  position: sticky;
+  top: -5.8em;
+  background: $red-salsa;
+  max-width: fit-content;
+  border-radius: $radius 0;
+  border-top-right-radius: $radius;
+  padding: 1em;
+  &::after{
+    content: '';
+    inset: 100% calc(100% - #{$radius}) calc(-2 * #{$radius}) 0;
+    border-top-left-radius: $radius;
+    box-shadow: 0 calc(-1 * #{$radius}) 0 0 $red-salsa;
+    position: absolute;
+    z-index: -1;
+  }
+  &::before{  
+    content: '';
+    position: absolute;
+    inset: calc(100% + 1px) calc(100% - #{$radius} - 1px) calc(-2 * #{$radius}) calc(#{$radius} - 1px);
+    background: $seashell;
+  }
+  h2{
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: .5em;
+  }
+  *{
+    margin: 0;
+  }
+}
+main{
+  margin-block: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  gap: 2em;
+  h3{
+    background: lighten($red-salsa, 5%);
+    padding: .5em;
+    margin: 0;
+    border-top-left-radius: .7em;
+  }
+  .data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    gap: 1em;
+    div{
+      position: relative;
+      &:nth-of-type(1)::after{
+        content: 'Xa';
+      }
+      &:nth-of-type(2)::after{
+        content: 'Ya';
+      }
+      &:nth-of-type(3)::after{
+        content: 'Xb';
+      }
+      &:nth-of-type(4)::after{
+        content: 'Yb';
+      }
+      &::after{  
+        content: '';
+        text-align: center;
+        font-weight: bold;
+        position: absolute;
+        inset: calc(100% - 1em) -1em -.5em calc(100% - 1em);
+        background: darken($seashell, 35%);
+        box-shadow: 0 0 0 .2em $seashell;
+        border-radius: .3em;
+      }
+    }
+  }
+  button{
+    padding: .6em;
+    width: 10em;
+    border: .2em lighten($red-salsa, 5%) solid;
+    border-radius: .7em 0;
+    font-weight: bold;
+    &::after{
+      content: ' obliczenia';
+      font-weight: normal;
+    }
+    &:focus{
+      background: lighten($red-salsa, 5%);
+      color: $seashell;
+    }
+  }
+  input{
+    position: relative;
+    font-size: 1em;
+    height: 2em;
+    padding: .4em;
+    padding-inline: 1em;
+    border-top-left-radius: .7em;
+    background: $light-salmon;
+    border: 0;
+    box-shadow: 0 0 0 .2em $seashell;
+    
+  }
+  .outputTable{
+    max-width: 15em;
+    overflow: scroll;
+  }
+  table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    th{
+      background: $light-salmon;
+      padding: .2em .5em;
+      border: .2em solid darken($seashell, 35%);
+      border-right: 0;
+    }
+    td{
+      text-align: center;
+      padding: .2em .5em;
+      border: .3em solid darken($seashell, 35%);
+      border-top: 0;
+      border-right: 0;
+      font-size: .8em;
+      &:last-of-type{
+        border-right: .3em solid darken($seashell, 35%);
+      }
+    }
+    tr:last-of-type>td:last-of-type{
+      border-right: .3em solid darken($seashell, 35%);
+      border-radius: 0 0 .7em 0;
+    }
+    th:first-of-type{
+      border-radius: .7em 0 0 0;
+    }
+    th:last-of-type{
+      border-right: .2em solid darken($seashell, 35%);
+    }
+  }
+}
