@@ -75,6 +75,8 @@ main h3 {
   background: #e96363;
   padding: 0.5em;
   margin: 0;
+  vertical-align: middle;
+  border-radius: 0.2em;
   border-top-left-radius: 0.7em;
 }
 main .data {
@@ -106,12 +108,15 @@ main .data div::after {
   text-align: center;
   font-weight: bold;
   position: absolute;
+  vertical-align: middle;
   inset: calc(100% - 1em) -1em -0.5em calc(100% - 1em);
   background: #c97864;
   box-shadow: 0 0 0 0.2em hsl(12deg, 48%, 94%);
-  border-radius: 0.3em;
+  border-radius: 0.2em;
 }
 main button {
+  background-color: hsl(12deg, 48%, 94%);
+  color: black;
   padding: 0.6em;
   width: 10em;
   border: 0.2em #e96363 solid;
@@ -132,6 +137,7 @@ main input {
   height: 2em;
   padding: 0.4em;
   padding-inline: 1em;
+  border-radius: 0.3em;
   border-top-left-radius: 0.7em;
   background: hsl(17deg, 100%, 76%);
   border: 0;
@@ -139,7 +145,7 @@ main input {
 }
 main .outputTable {
   max-width: 15em;
-  overflow: scroll;
+  overflow-X: scroll;
 }
 main table {
   width: 100%;
@@ -152,6 +158,12 @@ main table th {
   border: 0.2em solid #c97864;
   border-right: 0;
 }
+main table th:first-of-type {
+  border-radius: 0.7em 0 0 0;
+}
+main table th:last-of-type {
+  border-right: 0.2em solid #c97864;
+}
 main table td {
   text-align: center;
   padding: 0.2em 0.5em;
@@ -163,13 +175,25 @@ main table td {
 main table td:last-of-type {
   border-right: 0.3em solid #c97864;
 }
+main table tr {
+  position: relative;
+}
+main table tr:not(.head):not(.blank)::after {
+  content: "X";
+  color: hsl(12deg, 48%, 94%);
+  position: absolute;
+  width: 1em;
+  inset-block-start: 0.2em;
+  inset-inline: calc(100% + 0.5em) -0.5em;
+  background-color: hsl(0deg, 75%, 60%);
+  border-radius: 0.2em;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0.1em;
+  font-weight: bold;
+}
 main table tr:last-of-type > td:last-of-type {
   border-right: 0.3em solid #c97864;
   border-radius: 0 0 0.7em 0;
-}
-main table th:first-of-type {
-  border-radius: 0.7em 0 0 0;
-}
-main table th:last-of-type {
-  border-right: 0.2em solid #c97864;
 }/*# sourceMappingURL=style.css.map */
