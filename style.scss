@@ -106,16 +106,20 @@ main {
         text-align: center;
         font-weight: bold;
         position: absolute;
-        vertical-align: middle;
-        inset: calc(100% - 1em) -1em -0.5em calc(100% - 1em);
+        top: calc(100% - 1em);
+        left: calc(100% - 1em);
+        height: 1em;
+        padding: .25em .5em;
+        line-height: 1em;
+        font-size: 1em;
         background: darken($seashell, 35%);
         box-shadow: 0 0 0 0.2em $seashell;
         border-radius: 0.2em;
       }
     }
   }
-  button {
-    background-color: $seashell;
+  &>button {
+    background-color: white;
     color: black;
     padding: 0.6em;
     width: 10em;
@@ -128,7 +132,7 @@ main {
     }
     &:focus {
       background: lighten($red-salsa, 5%);
-      color: $seashell;
+      color: white;
     }
   }
   input {
@@ -176,24 +180,30 @@ main {
     }
     tr{
       position: relative;
-      &:not(.head):not(.blank)::after{
-        content: 'X';
-        color: $seashell;
-        position: absolute;
-        width: 1em;
-        inset-block-start: .2em;
-        inset-inline: calc(100% + .5em) -.5em;
-        background-color: $red-salsa;
-        border-radius: .2em;
-        vertical-align: middle;
-        text-align: center;
-        font-size: .8em;
-        padding: .1em;
-        font-weight: bold;
-      }
       &:last-of-type > td:last-of-type {
         border-right: 0.3em solid darken($seashell, 35%);
         border-radius: 0 0 0.7em 0;
+      }
+      .delbutton{
+        position: absolute;
+        margin-left: .5em;
+        margin-top: 0.2em;
+        height: 1.5em;
+        width: 1.3em;
+        line-height: .8em;
+        text-align: center;
+        font-weight: bold;
+        padding: 0;
+        outline: 0;
+
+        background-color: lighten($red-salsa, 5%);
+        color: white;
+        border: 0;
+        border-radius: 0.5em 0;
+        &:focus {
+          background: lighten($red-salsa, 5%);
+          color: white;
+        }
       }
     }
   }

@@ -108,14 +108,18 @@ main .data div::after {
   text-align: center;
   font-weight: bold;
   position: absolute;
-  vertical-align: middle;
-  inset: calc(100% - 1em) -1em -0.5em calc(100% - 1em);
+  top: calc(100% - 1em);
+  left: calc(100% - 1em);
+  height: 1em;
+  padding: 0.25em 0.5em;
+  line-height: 1em;
+  font-size: 1em;
   background: #c97864;
   box-shadow: 0 0 0 0.2em hsl(12deg, 48%, 94%);
   border-radius: 0.2em;
 }
-main button {
-  background-color: hsl(12deg, 48%, 94%);
+main > button {
+  background-color: white;
   color: black;
   padding: 0.6em;
   width: 10em;
@@ -123,13 +127,13 @@ main button {
   border-radius: 0.7em 0;
   font-weight: bold;
 }
-main button::after {
+main > button::after {
   content: " obliczenia";
   font-weight: normal;
 }
-main button:focus {
+main > button:focus {
   background: #e96363;
-  color: hsl(12deg, 48%, 94%);
+  color: white;
 }
 main input {
   position: relative;
@@ -178,22 +182,27 @@ main table td:last-of-type {
 main table tr {
   position: relative;
 }
-main table tr:not(.head):not(.blank)::after {
-  content: "X";
-  color: hsl(12deg, 48%, 94%);
-  position: absolute;
-  width: 1em;
-  inset-block-start: 0.2em;
-  inset-inline: calc(100% + 0.5em) -0.5em;
-  background-color: hsl(0deg, 75%, 60%);
-  border-radius: 0.2em;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 0.8em;
-  padding: 0.1em;
-  font-weight: bold;
-}
 main table tr:last-of-type > td:last-of-type {
   border-right: 0.3em solid #c97864;
   border-radius: 0 0 0.7em 0;
+}
+main table tr .delbutton {
+  position: absolute;
+  margin-left: 0.5em;
+  margin-top: 0.2em;
+  height: 1.5em;
+  width: 1.3em;
+  line-height: 0.8em;
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+  outline: 0;
+  background-color: #e96363;
+  color: white;
+  border: 0;
+  border-radius: 0.5em 0;
+}
+main table tr .delbutton:focus {
+  background: #e96363;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
