@@ -184,9 +184,27 @@ main {
       &:not(.head){
         background-color: white;
       }
-      &:last-of-type > td:last-of-type {
-        border-right: 0.3em solid darken($seashell, 35%);
+      &:last-of-type > td.last {
         border-radius: 0 0 0.7em 0;
+      }
+      td.last{
+        border-right: 0.3em solid darken($seashell, 35%);
+        &+td{
+        border: 0;
+          button{
+            height: 1.5em;
+            aspect-ratio: 1/1;
+            padding: .1em;
+            line-height: 1em;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+            background-color: lighten($red-salsa, 5%);
+            border: 0;
+            border-radius: .2em;
+            color: white;
+          }
+        }
       }
       .delbutton{
         position: absolute;
@@ -213,8 +231,16 @@ main {
   }
 }
 #ver{
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  margin: .2em;
+  padding: .3em;
+  text-align: center;
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: violet;
+  background-color: blue;
+  color: white;
+  border-radius: .5em;
 }

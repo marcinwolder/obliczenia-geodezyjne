@@ -186,9 +186,27 @@ main table tr {
 main table tr:not(.head) {
   background-color: white;
 }
-main table tr:last-of-type > td:last-of-type {
-  border-right: 0.3em solid #c97864;
+main table tr:last-of-type > td.last {
   border-radius: 0 0 0.7em 0;
+}
+main table tr td.last {
+  border-right: 0.3em solid #c97864;
+}
+main table tr td.last + td {
+  border: 0;
+}
+main table tr td.last + td button {
+  height: 1.5em;
+  aspect-ratio: 1/1;
+  padding: 0.1em;
+  line-height: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  background-color: #e96363;
+  border: 0;
+  border-radius: 0.2em;
+  color: white;
 }
 main table tr .delbutton {
   position: absolute;
@@ -212,8 +230,16 @@ main table tr .delbutton:focus {
 }
 
 #ver {
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  margin: 0.2em;
+  padding: 0.3em;
+  text-align: center;
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: violet;
+  background-color: blue;
+  color: white;
+  border-radius: 0.5em;
 }/*# sourceMappingURL=style.css.map */

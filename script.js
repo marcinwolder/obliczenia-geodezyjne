@@ -29,24 +29,14 @@ function getD(deltaX, deltaY) {
   return Math.sqrt(deltaX ** 2 + deltaY ** 2);
 }
 
-function createDelButton(row) {
-  const { width } = row.getBoundingClientRect();
-  const delButton = document.createElement('button');
-  delButton.classList.add('delbutton');
-  const allButtons = Array(
-    ...document.querySelectorAll('.delbutton'),
-    delButton
-  );
-  allButtons.forEach((el) => {
-    el.style.left = `${width}px`;
-  });
-  delButton.innerText = 'X';
+function addDelEvent(row) {
+  // document.createElement('tr').lastChild.lastChild
+  const delButton = row.lastChild.lastChild;
   delButton.addEventListener('click', function () {
-    this.parentElement.remove();
+    this.parentElement.parentElement.remove();
     if (table.children[0].children.length === 1)
       table.children[0].append(createRow());
   });
-  return delButton;
 }
 
 function createRow(values = '') {
@@ -54,7 +44,8 @@ function createRow(values = '') {
     const row = document.createElement('tr');
     for (let i = 0; i < values.length; i++) {
       const td = document.createElement('td');
-      td.innerText = values[i];
+      if (i === values.length - 2) td.classList.add('last');
+      td.innerHTML = values[i];
       row.append(td);
     }
 
@@ -91,13 +82,18 @@ function updateValues() {
   const D = getD(deltaX, deltaY); // Obliczenie długości (Widok na stronie)
 
   // Tworzenie linijki
-  const values = [...Object.values(pos), A.toFixed(4), D.toFixed(4)]; // Zebranie danych do tableki
+  const values = [
+    ...Object.values(pos),
+    A.toFixed(4),
+    D.toFixed(4),
+    '<button>X</button>',
+  ]; // Zebranie danych do tableki
 
   if (document.querySelector('.blank'))
     document.querySelector('.blank').remove(); // Usuwanie napisu w tabelce
 
   const row = createRow(values); // Stworzenie linijki z wynikami
+  addDelEvent(row);
   table.children[0].append(row); // Wypisanie linijki na stronie
-  row.append(createDelButton(row)); // Stworzenie i wypisanie przycisku do usuwania linijek
 }
 btn.addEventListener('click', updateValues);
