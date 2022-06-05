@@ -73,7 +73,7 @@ main {
   gap: 2em;
   h3 {
     background: lighten($red-salsa, 5%);
-    padding: 0.5em .8em;
+    padding: 0.75em .8em 0.5em;
     margin: 0;
     vertical-align: middle;
     border-radius: .7em .2em;
@@ -190,6 +190,7 @@ main {
       td.last{
         border-right: 0.3em solid darken($seashell, 35%);
         &+td{
+        background-color: $seashell;
         border: 0;
           button{
             height: 1.5em;
@@ -206,27 +207,6 @@ main {
           }
         }
       }
-      .delbutton{
-        position: absolute;
-        margin-left: .5em;
-        margin-top: 0.2em;
-        height: 1.5em;
-        width: 1.3em;
-        line-height: .8em;
-        text-align: center;
-        font-weight: bold;
-        padding: 0;
-        outline: 0;
-
-        background-color: lighten($red-salsa, 5%);
-        color: white;
-        border: 0;
-        border-radius: 0.5em 0;
-        &:focus {
-          background: lighten($red-salsa, 5%);
-          color: white;
-        }
-      }
     }
   }
 }
@@ -240,7 +220,7 @@ main {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: blue;
+  background-color: green;
   color: white;
   border-radius: .5em;
 }

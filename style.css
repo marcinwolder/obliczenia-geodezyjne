@@ -73,7 +73,7 @@ main {
 }
 main h3 {
   background: #e96363;
-  padding: 0.5em 0.8em;
+  padding: 0.75em 0.8em 0.5em;
   margin: 0;
   vertical-align: middle;
   border-radius: 0.7em 0.2em;
@@ -193,6 +193,7 @@ main table tr td.last {
   border-right: 0.3em solid #c97864;
 }
 main table tr td.last + td {
+  background-color: hsl(12deg, 48%, 94%);
   border: 0;
 }
 main table tr td.last + td button {
@@ -208,26 +209,6 @@ main table tr td.last + td button {
   border-radius: 0.2em;
   color: white;
 }
-main table tr .delbutton {
-  position: absolute;
-  margin-left: 0.5em;
-  margin-top: 0.2em;
-  height: 1.5em;
-  width: 1.3em;
-  line-height: 0.8em;
-  text-align: center;
-  font-weight: bold;
-  padding: 0;
-  outline: 0;
-  background-color: #e96363;
-  color: white;
-  border: 0;
-  border-radius: 0.5em 0;
-}
-main table tr .delbutton:focus {
-  background: #e96363;
-  color: white;
-}
 
 #ver {
   width: 1em;
@@ -239,7 +220,7 @@ main table tr .delbutton:focus {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: blue;
+  background-color: green;
   color: white;
   border-radius: 0.5em;
 }/*# sourceMappingURL=style.css.map */
