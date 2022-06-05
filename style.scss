@@ -73,11 +73,12 @@ main {
   gap: 2em;
   h3 {
     background: lighten($red-salsa, 5%);
-    padding: 0.5em;
+    padding: 0.5em .8em;
     margin: 0;
     vertical-align: middle;
-    border-radius: .2em;
-    border-top-left-radius: .7em;
+    border-radius: .7em .2em;
+    font-size: 1.2em;
+    line-height: 0.8em;
   }
   .data {
     display: flex;
@@ -180,6 +181,9 @@ main {
     }
     tr{
       position: relative;
+      &:not(.head){
+        background-color: white;
+      }
       &:last-of-type > td:last-of-type {
         border-right: 0.3em solid darken($seashell, 35%);
         border-radius: 0 0 0.7em 0;
@@ -212,5 +216,5 @@ main {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: green;
+  background-color: violet;
 }

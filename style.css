@@ -73,11 +73,12 @@ main {
 }
 main h3 {
   background: #e96363;
-  padding: 0.5em;
+  padding: 0.5em 0.8em;
   margin: 0;
   vertical-align: middle;
-  border-radius: 0.2em;
-  border-top-left-radius: 0.7em;
+  border-radius: 0.7em 0.2em;
+  font-size: 1.2em;
+  line-height: 0.8em;
 }
 main .data {
   display: flex;
@@ -182,6 +183,9 @@ main table td:last-of-type {
 main table tr {
   position: relative;
 }
+main table tr:not(.head) {
+  background-color: white;
+}
 main table tr:last-of-type > td:last-of-type {
   border-right: 0.3em solid #c97864;
   border-radius: 0 0 0.7em 0;
@@ -211,5 +215,5 @@ main table tr .delbutton:focus {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: green;
+  background-color: violet;
 }/*# sourceMappingURL=style.css.map */

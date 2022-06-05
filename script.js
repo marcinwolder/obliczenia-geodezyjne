@@ -30,10 +30,16 @@ function getD(deltaX, deltaY) {
 }
 
 function createDelButton(row) {
-  const { right } = row.getBoundingClientRect();
+  const { width } = row.getBoundingClientRect();
   const delButton = document.createElement('button');
   delButton.classList.add('delbutton');
-  delButton.style.left = right;
+  const allButtons = Array(
+    ...document.querySelectorAll('.delbutton'),
+    delButton
+  );
+  allButtons.forEach((el) => {
+    el.style.left = `${width}px`;
+  });
   delButton.innerText = 'X';
   delButton.addEventListener('click', function () {
     this.parentElement.remove();
