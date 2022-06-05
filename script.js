@@ -55,7 +55,7 @@ function createRow(values = '') {
   const td = document.createElement('td');
   row.classList.add('blank');
   td.setAttribute('colspan', '6');
-  td.innerText = 'Tutaj pojawiają się wyniki';
+  td.innerText = 'Tutaj pojawiają się wyniki...';
   row.append(td);
   return row;
 }
