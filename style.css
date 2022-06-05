@@ -205,4 +205,11 @@ main table tr .delbutton {
 main table tr .delbutton:focus {
   background: #e96363;
   color: white;
+}
+
+#ver {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: green;
 }/*# sourceMappingURL=style.css.map */
