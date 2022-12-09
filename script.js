@@ -84,8 +84,8 @@ function updateValues() {
   // Tworzenie linijki
   const values = [
     ...Object.values(pos),
-    A.toFixed(4),
     D.toFixed(4),
+    A.toFixed(4),
     '<button>X</button>',
   ]; // Zebranie danych do tabelki
 
