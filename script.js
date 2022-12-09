@@ -87,7 +87,7 @@ function updateValues() {
     A.toFixed(4),
     D.toFixed(4),
     '<button>X</button>',
-  ]; // Zebranie danych do tableki
+  ]; // Zebranie danych do tabelki
 
   if (document.querySelector('.blank'))
     document.querySelector('.blank').remove(); // Usuwanie napisu w tabelce
