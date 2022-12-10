@@ -1,10 +1,11 @@
 import { Header } from "./components/Header";
+import { Azymuty } from "./components/Azymuty";
 
 function _App() {
   return (
     <>
     <Header/>
-    <h1 className="bg-jet">Hi</h1>
+    <Azymuty/>
     </>
   );
 }
