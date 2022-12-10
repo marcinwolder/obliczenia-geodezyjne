@@ -11,8 +11,9 @@
 
 body{
   background-color: var(--seashell);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
-#root{
-  height: 200vh;
+body::-webkit-scrollbar {
+  display: none;
 }
