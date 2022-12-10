@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+  --red-salsa: hsla(0, 75%, 60%, 1);
+  --light-salmon: hsla(17, 100%, 76%, 1);
+  --seashell: hsl(12, 48%, 94%);
+  --jet: hsla(15, 3%, 26%, 1);
+}
+
+body{
+  background-color: var(--seashell);
+}
+
+#root{
+  height: 200vh;
+}
