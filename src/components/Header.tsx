@@ -27,7 +27,7 @@ const _Header = ():JSX.Element=>{
         <p className="text-xl">Do opracowań geodezyjnych </p>
         <p className="mt-4 text-m font-semibold">Julia Kowalczyk</p>
       </div>
-      <div ref={tailRef} className="relative -z-10">
+      <div ref={tailRef} className="w-min relative -z-10">
           <div className="bg-red-salsa w-6 h-8 relative -top-2"></div>
           <div className="bg-seashell w-6 h-6 absolute top-0 rounded-tl-full"></div>
       </div>

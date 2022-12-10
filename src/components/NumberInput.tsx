@@ -19,7 +19,7 @@ const _Comp = (props: CompProps):JSX.Element=>{
   )
   else
   return(
-    <TextField error={props.value ? false : true} color='error' helperText="Podaj wartość!" className='' value={props.value || ''} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} type={"number"} variant="outlined" />
+    <TextField error={props.value ? false : true} color='error' helperText="Podaj wartość" className='' value={props.value || ''} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} type={"number"} variant="outlined" />
   )
 }
 
