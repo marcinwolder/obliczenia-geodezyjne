@@ -3,11 +3,21 @@ import { useEffect, useRef } from "react";
 const _Header = ():JSX.Element=>{
   const headerRef = useRef<HTMLDivElement>(null);
   const tailRef = useRef<HTMLDivElement>(null);
-  useEffect(()=>{
+  
+  const handleResize = ()=>{
     if(headerRef.current && tailRef.current){
       const header = headerRef.current;
       const tail = tailRef.current;
+
       tail.style.left = `${header.getBoundingClientRect().left}px`;
+    }
+  }
+
+  useEffect(()=>{
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return ()=>{
+      window.removeEventListener('resize', handleResize);
     }
   }, []);
   return (
