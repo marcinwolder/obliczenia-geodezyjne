@@ -7,12 +7,12 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 export interface Data {
-  Xa: number;
-  Xb: number;
-  Ya: number;
-  Yb: number;
-  d: number;
-  A: number;
+  Xa: string;
+  Xb: string;
+  Ya: string;
+  Yb: string;
+  d: string;
+  A: string;
 }
 
 interface compProps {

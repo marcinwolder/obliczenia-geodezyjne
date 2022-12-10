@@ -9,10 +9,10 @@ import { getA, getD } from '../utils/azymuty';
 
 const _Azymuty = ():JSX.Element =>{
 
-  const [Xa, setXa] = useState(0);
-  const [Ya, setYa] = useState(0);
-  const [Xb, setXb] = useState(0);
-  const [Yb, setYb] = useState(0);
+  const [Xa, setXa] = useState('');
+  const [Ya, setYa] = useState('');
+  const [Xb, setXb] = useState('');
+  const [Yb, setYb] = useState('');
 
   const [rows, setRows] = useState<Data[]>([]);
 
@@ -20,12 +20,13 @@ const _Azymuty = ():JSX.Element =>{
 
   const handleClick = ()=>{
     if(Xa && Xb && Ya && Yb) {
-      setXa(0);
-      setXb(0);
-      setYa(0);
-      setYb(0);
-      const d = Number(getD(Xb-Xa, Yb-Ya).toFixed(4));
-      const A = Number(getA(Xb-Xa, Yb-Ya).toFixed(4));
+      setXa('');
+      setXb('');
+      setYa('');
+      setYb('');
+      const [_Xa, _Xb, _Ya, _Yb]:number[] = [Xa, Xb, Ya, Yb].map((x)=>Number(x));
+      const d = getD(_Xb-_Xa, _Yb-_Ya).toFixed(4);
+      const A = getA(_Xb-_Xa, _Yb-_Ya).toFixed(4);
       const row: Data = {Xa, Xb, Ya, Yb, d, A};
       setRows([...rows, row]);
     }

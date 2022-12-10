@@ -1,25 +1,29 @@
-import {ChangeEvent} from 'react';
+import {useState, ChangeEvent} from 'react';
 import {TextField} from '@mui/material';
 
 interface CompProps {
   label: string;
-  value: number;
-  setter: (x: number)=>void;
-
+  value: string;
+  setter: (x: string)=>void;
 }
 
 const _Comp = (props: CompProps):JSX.Element=>{
+  const [start, setStart] = useState(true);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>)=>{
-    props.setter(Number(e.target.value));
+    if(start) setStart(false);
+    if(parseFloat(e.target.value)){
+      props.setter(e.target.value);
+    }
   }
 
   if(props.value)
   return (
-    <TextField color='error' className='' value={props.value || ''} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} type={"number"} variant="outlined" />
+    <TextField color='error' className='' value={start ? '' : props.value} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} type='number' variant="outlined" />
   )
   else
   return(
-    <TextField error={props.value ? false : true} color='error' helperText="Podaj wartość" className='' value={props.value || ''} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} type={"number"} variant="outlined" />
+    <TextField error={props.value ? false : true} color='error' helperText="Podaj wartość" className='' value={start ? '' : props.value} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} type='number' variant="outlined" />
   )
 }
 
