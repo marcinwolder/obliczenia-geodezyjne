@@ -3,7 +3,7 @@ import { Header } from "./components/Header";
 function _App() {
   return (
     <>
-    <Header />
+    <Header/>
     <h1 className="bg-jet">Hi</h1>
     </>
   );
