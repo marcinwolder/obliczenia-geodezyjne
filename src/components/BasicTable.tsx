@@ -40,12 +40,9 @@ export function BasicTable({data}:compProps):JSX.Element {
             <TableRow
               key={i}
             >
-              <TableCell>{row.Xa}</TableCell>
-              <TableCell>{row.Xb}</TableCell>
-              <TableCell>{row.Ya}</TableCell>
-              <TableCell>{row.Yb}</TableCell>
-              <TableCell>{row.d}</TableCell>
-              <TableCell>{row.A}</TableCell>
+              {Object.entries(row).map((x)=>{
+                return <TableCell key={x[0]}>{parseFloat(x[1])}</TableCell>
+              })}
             </TableRow>
           ))}
         </TableBody>

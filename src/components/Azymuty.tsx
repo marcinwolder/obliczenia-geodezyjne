@@ -35,8 +35,8 @@ const _Azymuty = ():JSX.Element =>{
   const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end', 'color': 'var'})
 
   return (
-    <Stack alignItems={'baseline'} direction="column" spacing={1} className='w-max mx-auto bg-light-salmon rounded-xl p-4'>
-      <Typography className='text-jet' variant='overline'>Obliczanie Azymutu AB</Typography>
+    <Stack alignItems={'center'} direction="column" spacing={1} className='w-max mx-auto bg-light-salmon rounded-xl p-4'>
+      <Typography alignSelf='self-start' className='text-jet' variant='overline'>Obliczanie Azymutu AB</Typography>
       <NumberInput label='Xa' value={Xa} setter={setXa} />
       <NumberInput label='Ya' value={Ya} setter={setYa} />
       <NumberInput label='Xb' value={Xb} setter={setXb} />
