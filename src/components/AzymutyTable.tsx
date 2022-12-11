@@ -19,12 +19,12 @@ interface compProps {
   data: Data[];
 }
 
-export function BasicTable({data}:compProps):JSX.Element {
+export function AzymutyTable({data}:compProps):JSX.Element {
   return (
-    // <TableContainer sx={()=>({width: '14rem'})} component={Paper}>
     <TableContainer className='w-64' component={Paper}>
       <Table
         className='overflow-scroll'
+        size='small'
       >
         <TableHead>
           <TableRow>

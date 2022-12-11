@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import {BsCalculatorFill} from 'react-icons/bs';
 
-import { Typography , Stack, Button, styled, ButtonProps } from '@mui/material';
+import { Divider, Typography , Stack, Button, styled, ButtonProps } from '@mui/material';
 import { NumberInput } from './NumberInput'; 
-import { BasicTable, Data } from './BasicTable';
+import { AzymutyTable, Data } from './AzymutyTable';
 
 import { getA, getD } from '../utils/azymuty';
 
@@ -35,24 +35,24 @@ const _Azymuty = ():JSX.Element =>{
   const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end', 'marginBlockEnd': '1rem'})
 
   return (
-    <Stack alignItems={'center'} direction="column" className='w-72 my-4 mx-auto bg-light-salmon rounded-xl p-4'>
+    <Stack alignItems={'center'} divider={<Divider variant='middle' flexItem/>} spacing={2} direction="column" className='w-72 my-4 mx-auto bg-light-salmon rounded-xl p-4'>
       <Typography alignSelf='self-start' className='text-jet' variant='overline'>Obliczanie Azymutu AB</Typography>
-      <div className='flex flex-col my-4 gap-2'>
-        <NumberInput label='Xa' value={Xa} setter={setXa} />
-        <NumberInput label='Ya' value={Ya} setter={setYa} />
-        <NumberInput label='Xb' value={Xb} setter={setXb} />
-        <NumberInput label='Yb' value={Yb} setter={setYb} />
+      <div className='flex flex-col gap-2 w-64'>
+        <NumberInput rowNums={rows.length} label='Xa' value={Xa} setter={setXa} />
+        <NumberInput rowNums={rows.length} label='Ya' value={Ya} setter={setYa} />
+        <NumberInput rowNums={rows.length} label='Xb' value={Xb} setter={setXb} />
+        <NumberInput rowNums={rows.length} label='Yb' value={Yb} setter={setYb} />
+        <SubmitBtn
+          disabled={disabled}
+          onClick={handleClick}
+          color="error"
+          size="large"
+          variant="outlined"
+        >
+          <BsCalculatorFill className='mr-2' />Oblicz
+        </SubmitBtn>
       </div>
-      <SubmitBtn
-        disabled={disabled}
-        onClick={handleClick}
-        color="error"
-        size="large"
-        variant="outlined"
-      >
-        <BsCalculatorFill className='mr-2' />Oblicz
-      </SubmitBtn>
-      <BasicTable data={rows} />
+      <AzymutyTable data={rows} />
     </Stack>
   );
 }
