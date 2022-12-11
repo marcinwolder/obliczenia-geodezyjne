@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import {BsCalculatorFill} from 'react-icons/bs';
 
-import { Typography , Stack, Button, styled, ButtonProps } from '@mui/material';
+import { Typography, TextField, Stack, Button, styled, ButtonProps } from '@mui/material';
 import { NumberInput } from './NumberInput'; 
 import { BasicTable, Data } from './BasicTable';
 
 import { getA, getD } from '../utils/azymuty';
 
-const _Azymuty = ():JSX.Element =>{
+const _PoleDzialki = ():JSX.Element =>{
 
   const [Xa, setXa] = useState('');
   const [Ya, setYa] = useState('');
@@ -35,16 +35,17 @@ const _Azymuty = ():JSX.Element =>{
   const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end', 'marginBlockEnd': '1rem'})
 
   return (
-    <Stack alignItems={'center'} direction="column" className='w-72 my-4 mx-auto bg-light-salmon rounded-xl p-4'>
-      <Typography alignSelf='self-start' className='text-jet' variant='overline'>Obliczanie Azymutu AB</Typography>
+    <Stack alignItems={'center'} direction="column" className='w-72 my-4 mx-auto bg-zinc-400 rounded-xl p-4'>
+      <Typography alignSelf='self-start' className='text-jet' variant='overline'>Dziennik podziału działki</Typography>
       <div className='flex flex-col my-4 gap-2'>
-        <NumberInput label='Xa' value={Xa} setter={setXa} />
+        {/* <NumberInput label='Xa' value={Xa} setter={setXa} />
         <NumberInput label='Ya' value={Ya} setter={setYa} />
         <NumberInput label='Xb' value={Xb} setter={setXb} />
-        <NumberInput label='Yb' value={Yb} setter={setYb} />
+        <NumberInput label='Yb' value={Yb} setter={setYb} /> */}
+        <TextField color='primary' className='w-64' value="test" size='small' label="test1" variant="outlined" />
       </div>
       <SubmitBtn
-        disabled={disabled}
+        disabled
         onClick={handleClick}
         color="error"
         size="large"
@@ -52,9 +53,8 @@ const _Azymuty = ():JSX.Element =>{
       >
         <BsCalculatorFill className='mr-2' />Oblicz
       </SubmitBtn>
-      <BasicTable data={rows} />
     </Stack>
   );
 }
 
-export const Azymuty = _Azymuty;
+export const PoleDzialki = _PoleDzialki;
