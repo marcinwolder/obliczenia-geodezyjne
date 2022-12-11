@@ -7,6 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import {ImArrowUp} from 'react-icons/im';
+import {BsTrashFill} from 'react-icons/bs';
 
 export interface Data {
   X: string;
@@ -31,6 +32,11 @@ export function PoleDzialkiTable({data, editData}:compProps):JSX.Element {
       [bufData[index], bufData[index-1]] = [bufData[index-1], bufData[index]];
       editData(bufData);
     }
+    const handleDelete = ()=>{
+      const bufData= [...data];
+      bufData.splice(index, 1);
+      editData(bufData);
+    }
     const adminBtn = index ? <TableCell key="btn"><button onClick={handleMove}><ImArrowUp className='text-red-salsa'/></button></TableCell> : <TableCell key="btn"></TableCell>;
     const [indexUp, indexDown] = [index - 1 >= 0 ? index - 1 : data.length-1, index + 1 < data.length ? index + 1 : 0];
 
@@ -48,11 +54,12 @@ export function PoleDzialkiTable({data, editData}:compProps):JSX.Element {
         <TableRow key={index}>
           {[
             adminBtn,
-            ...Object.entries(row).map(([name, value], index)=>{
+            ...Object.entries(row).map(([name, value]: string[], index)=>{
               return (
-                <TableCell key={name}>{value}</TableCell>
+                <TableCell key={name}>{parseFloat(value).toFixed(2)}</TableCell>
               )
-            })
+            }),
+            <TableCell><button onClick={handleDelete}><BsTrashFill className='text-red-salsa' /></button></TableCell>
           ]}
         </TableRow>
       </>
@@ -72,8 +79,9 @@ export function PoleDzialkiTable({data, editData}:compProps):JSX.Element {
             <TableCell>Y</TableCell>
             <TableCell>ΔY</TableCell>
             <TableCell>ΔX</TableCell>
-            <TableCell>2P</TableCell>
-            <TableCell>-2P</TableCell>
+            <TableCell>P</TableCell>
+            <TableCell>-P</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

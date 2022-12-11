@@ -52,7 +52,7 @@ const _Azymuty = ():JSX.Element =>{
           <BsCalculatorFill className='mr-2' />Oblicz
         </SubmitBtn>
       </div>
-      <AzymutyTable data={rows} />
+      <AzymutyTable editData={setRows} data={rows} />
     </Stack>
   );
 }

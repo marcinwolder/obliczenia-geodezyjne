@@ -6,6 +6,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import {BsTrashFill} from 'react-icons/bs';
+
 export interface Data {
   Xa: string;
   Xb: string;
@@ -17,9 +19,10 @@ export interface Data {
 
 interface compProps {
   data: Data[];
+  editData: (data: Data[])=>void;
 }
 
-export function AzymutyTable({data}:compProps):JSX.Element {
+export function AzymutyTable({data, editData}:compProps):JSX.Element {
   return (
     <TableContainer className='w-64' component={Paper}>
       <Table
@@ -34,6 +37,7 @@ export function AzymutyTable({data}:compProps):JSX.Element {
             <TableCell>Yb</TableCell>
             <TableCell>d</TableCell>
             <TableCell>A</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,9 +45,16 @@ export function AzymutyTable({data}:compProps):JSX.Element {
             <TableRow
               key={i}
             >
-              {Object.entries(row).map((x)=>{
+              {[
+                ...Object.entries(row).map((x)=>{
                 return <TableCell key={x[0]}>{parseFloat(x[1])}</TableCell>
-              })}
+                }), 
+                <TableCell><button onClick={()=>{
+                  const bufData= [...data];
+                  bufData.splice(i, 1);
+                  editData(bufData);
+                }}><BsTrashFill className='text-red-salsa' /></button></TableCell>
+              ]}
             </TableRow>
           ))}
         </TableBody>
