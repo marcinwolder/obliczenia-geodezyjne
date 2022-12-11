@@ -29,11 +29,11 @@ const _Comp = (props: CompProps):JSX.Element=>{
 
   if(props.value)
   return (
-    <TextField color='error' className='' value={start ? '' : props.value} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} variant="outlined" />
+    <TextField color='error' className='w-64' value={start ? '' : props.value} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} variant="outlined" />
   )
   else
   return(
-    <TextField error={props.value ? false : true} color='error' helperText="Podaj wartość" className='' value={start ? '' : props.value} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} variant="outlined" />
+    <TextField error={props.value ? false : true} color='error' helperText="Podaj wartość" className='w-64' value={start ? '' : props.value} onChange={handleChange} size='small' id="outlined-basic" label={`${props.label}`} variant="outlined" />
   )
 }
 

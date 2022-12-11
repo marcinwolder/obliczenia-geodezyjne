@@ -32,15 +32,17 @@ const _Azymuty = ():JSX.Element =>{
     }
   }
 
-  const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end', 'color': 'var'})
+  const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end', 'marginBlockEnd': '1rem'})
 
   return (
-    <Stack alignItems={'center'} direction="column" spacing={1} className='w-max mx-auto bg-light-salmon rounded-xl p-4'>
+    <Stack alignItems={'center'} direction="column" className='w-72 mx-auto bg-light-salmon rounded-xl p-4'>
       <Typography alignSelf='self-start' className='text-jet' variant='overline'>Obliczanie Azymutu AB</Typography>
-      <NumberInput label='Xa' value={Xa} setter={setXa} />
-      <NumberInput label='Ya' value={Ya} setter={setYa} />
-      <NumberInput label='Xb' value={Xb} setter={setXb} />
-      <NumberInput label='Yb' value={Yb} setter={setYb} />
+      <div className='flex flex-col my-4'>
+        <NumberInput label='Xa' value={Xa} setter={setXa} />
+        <NumberInput label='Ya' value={Ya} setter={setYa} />
+        <NumberInput label='Xb' value={Xb} setter={setXb} />
+        <NumberInput label='Yb' value={Yb} setter={setYb} />
+      </div>
       <SubmitBtn
         disabled={disabled}
         onClick={handleClick}

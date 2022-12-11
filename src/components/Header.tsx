@@ -22,7 +22,7 @@ const _Header = ():JSX.Element=>{
   }, []);
   return (
     <>
-      <div ref={headerRef} className="sticky -top-20 mx-auto flex-col w-max bg-red-salsa p-3 mt-2 rounded-lg z-10">
+      <div ref={headerRef} className="sticky -top-20 mx-auto flex-col w-80 bg-red-salsa p-3 mt-2 rounded-lg z-10">
         <p className="text-3xl font-bold">Program </p>
         <p className="text-xl">Do opracowań geodezyjnych </p>
         <p className="mt-4 text-m font-semibold">Julia Kowalczyk</p>
