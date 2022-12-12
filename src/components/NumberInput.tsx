@@ -2,10 +2,11 @@ import {useEffect, useState, ChangeEvent} from 'react';
 import {TextField} from '@mui/material';
 
 interface CompProps {
-  label: string;
   value: string;
   rowNums: number;
   setter: (x: string)=>void;
+  label?: string;
+  helper?: boolean;
   int?: boolean;
 }
 
@@ -13,6 +14,7 @@ const _Comp = (props: CompProps):JSX.Element=>{
   const [start, setStart] = useState(true);
 
   useEffect(()=>{
+    props.setter('');
     setStart(true);
   }, [props.rowNums])
 
@@ -42,12 +44,14 @@ const _Comp = (props: CompProps):JSX.Element=>{
 
   if(props.value || start)
   return (
-    <TextField color='error' className='w-64' value={start ? '' : props.value} onChange={handleChange} onBlur={handleBlur} size='small' id="outlined-basic" label={`${props.label}`} variant="outlined" />
+    <TextField color='error' value={start ? '' : props.value} onChange={handleChange} onBlur={handleBlur} size='small' id="outlined-basic" label={`${props.label || ''}`} variant="outlined" />
   )
-  else
+  else {
+    const helperText = props.helper ? `Podaj wartość ${props.label || ''}` : '';
   return(
-    <TextField error={props.value ? false : true} color='error' helperText={`Podaj wartość ${props.label}`} className='w-64' value={start ? '' : props.value} onChange={handleChange} onBlur={handleBlur} size='small' id="outlined-basic" label={`${props.label}`} variant="outlined" />
+    <TextField error={props.value ? false : true} color='error' helperText={helperText} value={start ? '' : props.value} onChange={handleChange} onBlur={handleBlur} size='small' id="outlined-basic" label={`${props.label || ''}`} variant="outlined" />
   )
+  }
 }
 
 export const NumberInput = _Comp;

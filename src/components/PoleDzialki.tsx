@@ -17,18 +17,18 @@ const _PoleDzialki = ():JSX.Element =>{
     if(valueX && valueY) {
       setX('');
       setY('');
-      setPunkty([...punkty, {X: valueX, Y: valueY, dY: '', dX: '', p2P: '', n2P: ''}]);
+      setPunkty([...punkty, {X: valueX, Y: valueY}]);
     }
   }
 
-  const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end', 'marginBlockEnd': '1rem'})
+  const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end'})
 
   return (
     <Stack alignItems={'center'} divider={<Divider variant='middle' flexItem/>} spacing={2} direction="column" className='w-72 my-4 mx-auto bg-light-salmon rounded-xl p-4'>
       <Typography alignSelf='self-start' className='text-jet' variant='overline'>Dziennik podziału działki</Typography>
       <div className='flex flex-col gap-2 w-64'>
-        <NumberInput rowNums={punkty.length} label='X' value={valueX} setter={setX} />
-        <NumberInput rowNums={punkty.length} label='Y' value={valueY} setter={setY} />
+        <NumberInput helper rowNums={punkty.length} label='X' value={valueX} setter={setX} />
+        <NumberInput helper rowNums={punkty.length} label='Y' value={valueY} setter={setY} />
         <div className='flex gap-2'>
           <SubmitBtn
             disabled={disabledResetBtn}

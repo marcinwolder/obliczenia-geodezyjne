@@ -1,6 +1,7 @@
 import { Header } from "./components/Header";
 import { Azymuty } from "./components/Azymuty";
 import { PoleDzialki } from "./components/PoleDzialki";
+import { HausbrandtPage } from "./pages/HausbrandtPage";
 
 function _App() {
   return (
@@ -8,6 +9,7 @@ function _App() {
     <Header/>
     <Azymuty/>
     <PoleDzialki/>
+    <HausbrandtPage/>
     </>
   );
 }

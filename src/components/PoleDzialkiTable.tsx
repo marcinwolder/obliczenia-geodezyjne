@@ -1,10 +1,4 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import {Table, TableBody, TableCell, Paper, TableRow, TableHead, TableContainer} from '@mui/material';
 
 import {ImArrowUp} from 'react-icons/im';
 import {BsTrashFill} from 'react-icons/bs';
@@ -12,10 +6,10 @@ import {BsTrashFill} from 'react-icons/bs';
 export interface Data {
   X: string;
   Y: string;
-  dX: string;
-  dY: string;
-  p2P: string;
-  n2P: string;
+  dX?: string;
+  dY?: string;
+  p2P?: string;
+  n2P?: string;
 }
 
 interface compProps {
@@ -79,8 +73,8 @@ export function PoleDzialkiTable({data, editData}:compProps):JSX.Element {
             <TableCell>Y</TableCell>
             <TableCell>ΔY</TableCell>
             <TableCell>ΔX</TableCell>
-            <TableCell>P</TableCell>
             <TableCell>-P</TableCell>
+            <TableCell>P</TableCell>
             <TableCell></TableCell>
           </TableRow>
         </TableHead>
