@@ -6,10 +6,10 @@ import { HausbrandtPage } from "./pages/HausbrandtPage";
 function _App() {
   return (
     <>
-    <Header/>
-    <Azymuty/>
-    <PoleDzialki/>
-    <HausbrandtPage/>
+      <Header/>
+      <Azymuty/>
+      <PoleDzialki/>
+      <HausbrandtPage/>
     </>
   );
 }
