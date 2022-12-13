@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import {BsRulers, BsTrashFill} from 'react-icons/bs';
-import {AiOutlineArrowLeft, AiOutlineArrowRight} from 'react-icons/ai';
 
-import { Divider, Typography , Stack, Button, ButtonGroup, styled, ButtonProps } from '@mui/material';
+import { Divider, Typography , Stack, Button, styled, ButtonProps } from '@mui/material';
 
 import { NumberInput } from '../components/NumberInput';
 import { Matrix, Hausbrandt as HausbrandtClass } from '../utils/hausbrandt';
 
-import { MatrixRow } from '../components/Hausbrandt/MatrixRow';
+import { HausbrandtData, CurrentMatrix } from '../components/Hausbrandt';
 
 const _HausbrandtPage = ()=>{
   
@@ -19,6 +18,7 @@ const _HausbrandtPage = ()=>{
   const [matrices, setMatrices] = useState<Matrix[]>([]);
   
   const disabled: boolean = valueA && valueB && valueC && valueD ? false : true;
+  const disabledDel: boolean = matrices.length ? false : true;
   
   type Nums = [number, number, number, number];
   const handleClick = ()=>{
@@ -26,6 +26,9 @@ const _HausbrandtPage = ()=>{
     hausbrandt.setValues(matrices);
     hausbrandt.addValues(...[valueA, valueB, valueC, valueD].map(x=>Number(x)) as Nums);
     setMatrices(hausbrandt.getMatrices());
+  }
+  const handleDel = ()=>{
+    setMatrices([]);
   }
 
   const SubmitBtn = styled(Button)<ButtonProps>({'alignSelf': 'self-end'})
@@ -50,20 +53,24 @@ const _HausbrandtPage = ()=>{
             >
               <BsRulers className='mr-2 text-2xl' />Dodaj matryce
             </SubmitBtn>
+            <SubmitBtn
+              sx={{gridColumn: '1 / 3'}}
+              disabled={disabledDel}
+              onClick={handleDel}
+              color="error"
+              size="small"
+              variant="outlined"
+            >
+              <BsTrashFill className='mr-2 text-2xl' />Wyczyść matryce
+            </SubmitBtn>
           </div>
-          <div className='w-1/2 flex flex-col gap-2 items-center bg-seashell p-3 rounded-md shadow'>
-            <Button color='error' size='small' className='col-span-2'><BsTrashFill className='mr-2'/>Usuń</Button>
-            <MatrixRow label='A'></MatrixRow>
-            <MatrixRow label='B'></MatrixRow>
-            <MatrixRow label='C'></MatrixRow>
-            <MatrixRow label='D'></MatrixRow>
-            <ButtonGroup size='small'>
-              <Button color='error' ><AiOutlineArrowLeft/></Button>
-              <Button color='error' ><AiOutlineArrowRight/></Button>
-            </ButtonGroup>
-          </div>
+          <CurrentMatrix data={matrices} setter={setMatrices} />
         </Stack>
       </div>
+      <HausbrandtData data={(()=>{
+        const hausbrandt = new HausbrandtClass();
+        hausbrandt.setValues(matrices);
+        return hausbrandt.calcFunctions()})()}/>
     </Stack>
   );
 }

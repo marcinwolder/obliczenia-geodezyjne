@@ -1,4 +1,4 @@
-const fixNumber = (numer: number | string, fix = 3) => {
+const fixNumber = (numer: number | string, fix = 2) => {
   return Number(Number(numer).toFixed(fix));
 };
 const infSum = (
@@ -69,7 +69,7 @@ export class Hausbrandt {
     });
   };
   addValues = (a: number, b: number, c: number, d: number): Hausbrandt => {
-    [a, b, c, d] = [a, b, c, d].map((x) => fixNumber(x));
+    [a, b, c, d] = [a, b, c, d].map((x) => fixNumber(x, 4));
     this.a.push(a);
     this.b.push(b);
     this.c.push(c);
