@@ -21,10 +21,10 @@ Project for geodetic calculations. Includes calculators for the most commonly us
 
 ## Demo
 
-<div style="width: 100%; display: flex; align-items: start; padding-top: .5em; position: relative">
-<img src="./public/screen1.png" style="width: 33%">
-<img src="./public/screen2.png" style="width: 33%">
-<img src="./public/screen3.png" style="width: 33%">
+<div style="width: 100%; display: flex; flex-direction: column; align-items: center; padding-top: .5em; position: relative">
+<img src="./public/screen1.png">
+<img src="./public/screen2.png">
+<img src="./public/screen3.png">
 </div>
 
 #### Live DEMO:
